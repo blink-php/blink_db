@@ -46,7 +46,7 @@ class Pdo
      * @param array $bind
      * @return \PDOStatement
      */
-    public function query($sql, $bind = array())
+    public function query($sql, $bind = [])
     {
         $Statement = $this->_db->prepare($sql);
         $Statement->execute($bind);
@@ -59,7 +59,7 @@ class Pdo
      * @param array $bind
      * @return string
      */
-    public function fetchOne($sql, $bind = array())
+    public function fetchOne($sql, $bind = [])
     {
         $Statement = $this->query($sql, $bind);
         return $Statement->fetchColumn();
@@ -71,7 +71,7 @@ class Pdo
      * @param array $bind
      * @return array
      */
-    public function fetchAll($sql, $bind = array())
+    public function fetchAll($sql, $bind = [])
     {
         $Statement = $this->query($sql, $bind);
         return $Statement->fetchAll();
@@ -83,7 +83,7 @@ class Pdo
      * @param array $bind
      * @return mixed
      */
-    public function fetchRow($sql, $bind = array())
+    public function fetchRow($sql, $bind = [])
     {
         $Statement = $this->query($sql, $bind);
         return $Statement->fetch();
